@@ -13,7 +13,7 @@ RUN cargo update
 RUN cargo build --release
 
 # Start a new build stage
-FROM debian:buster-slim
+FROM debian:bookworm
 
 # Copy the binary from the builder stage
 COPY --from=builder /usr/src/rust_rocket_web_api/target/release/rust_rocket_web_api /usr/local/bin/
