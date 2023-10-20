@@ -1,11 +1,13 @@
 # Use the official Rust image as a parent image
-FROM rust:1.59 AS builder
+FROM rust:latest AS builder
 
 # Create a new directory in the container
 WORKDIR /usr/src/rust_rocket_web_api
 
 # Copy the local package to the container's directory
 COPY . .
+
+RUN cargo update
 
 # Build the application in release mode
 RUN cargo build --release
