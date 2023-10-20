@@ -15,6 +15,8 @@ RUN cargo build --release
 # Start a new build stage
 FROM debian:bookworm
 
+EXPOSE 8000
+
 # Copy the binary from the builder stage
 COPY --from=builder /usr/src/rust_rocket_web_api/target/release/rust_rocket_web_api /usr/local/bin/
 
